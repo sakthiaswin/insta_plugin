@@ -1,0 +1,29 @@
+{
+  "id": "instagram_post",
+  "name": "Instagram Post (photo / video / carousel)",
+  "version": "1.2.0",
+  "author": "sakthiaswin",
+  "targets": ["post", "carousel"],
+  "urlPattern": "instagram\\.com/(?:[^/]+/)?p/(?<shortcode>[A-Za-z0-9_-]+)",
+  "request": {
+    "method": "GET",
+    "urlTemplate": "https://www.instagram.com/p/{shortcode}/?__a=1&__d=dis",
+    "headers": {
+      "X-IG-App-ID": "936619743392459",
+      "Accept": "application/json"
+    }
+  },
+  "extract": {
+    "ownerPath": "graphql.shortcode_media.owner.username",
+    "captionPath": "graphql.shortcode_media.edge_media_to_caption.edges.0.node.text",
+    "itemsPath": "graphql.shortcode_media.edge_sidecar_to_children.edges",
+    "itemsPathFallback": "graphql.shortcode_media",
+    "itemUnwrapKey": "node",
+    "itemType": "is_video",
+    "itemUrl": "video_url",
+    "itemImageUrl": "display_url",
+    "itemThumbUrl": "display_url",
+    "itemWidthPath": "dimensions.width",
+    "itemHeightPath": "dimensions.height"
+  }
+}

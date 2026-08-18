@@ -1,0 +1,27 @@
+{
+  "id": "instagram_reel",
+  "name": "Instagram Reel",
+  "version": "1.1.0",
+  "author": "sakthiaswin",
+  "targets": ["reel"],
+  "urlPattern": "instagram\\.com/(?:[^/]+/)?reels?/(?<shortcode>[A-Za-z0-9_-]+)",
+  "request": {
+    "method": "GET",
+    "urlTemplate": "https://www.instagram.com/reel/{shortcode}/?__a=1&__d=dis",
+    "headers": {
+      "X-IG-App-ID": "936619743392459",
+      "Accept": "application/json"
+    }
+  },
+  "extract": {
+    "ownerPath": "graphql.shortcode_media.owner.username",
+    "captionPath": "graphql.shortcode_media.edge_media_to_caption.edges.0.node.text",
+    "itemsPath": "graphql.shortcode_media",
+    "itemType": "is_video",
+    "itemUrl": "video_url",
+    "itemImageUrl": "display_url",
+    "itemThumbUrl": "display_url",
+    "itemWidthPath": "dimensions.width",
+    "itemHeightPath": "dimensions.height"
+  }
+}
