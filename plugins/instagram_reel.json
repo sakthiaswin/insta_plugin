@@ -1,27 +1,36 @@
 {
   "id": "instagram_reel",
   "name": "Instagram Reel",
-  "version": "1.1.0",
+  "version": "3.0.0",
   "author": "sakthiaswin",
   "targets": ["reel"],
   "urlPattern": "instagram\\.com/(?:[^/]+/)?reels?/(?<shortcode>[A-Za-z0-9_-]+)",
   "request": {
-    "method": "GET",
-    "urlTemplate": "https://www.instagram.com/reel/{shortcode}/?__a=1&__d=dis",
+    "type": "doc_id_graphql",
+    "method": "POST",
+    "url": "https://www.instagram.com/graphql/query",
+    "csrfBootstrapUrl": "https://www.instagram.com/",
+    "docId": "27128499623469141",
+    "body": {
+      "doc_id": "27128499623469141",
+      "variables": "{\"shortcode\":\"{shortcode}\",\"__relay_internal__pv__PolarisAIGMMediaWebLabelEnabledrelayprovider\":false}",
+      "server_timestamps": "true"
+    },
     "headers": {
       "X-IG-App-ID": "936619743392459",
-      "Accept": "application/json"
+      "Accept": "*/*",
+      "Accept-Language": "en-US,en;q=0.8",
+      "Referer": "https://www.instagram.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
     }
   },
   "extract": {
-    "ownerPath": "graphql.shortcode_media.owner.username",
-    "captionPath": "graphql.shortcode_media.edge_media_to_caption.edges.0.node.text",
-    "itemsPath": "graphql.shortcode_media",
-    "itemType": "is_video",
-    "itemUrl": "video_url",
-    "itemImageUrl": "display_url",
-    "itemThumbUrl": "display_url",
-    "itemWidthPath": "dimensions.width",
-    "itemHeightPath": "dimensions.height"
+    "ownerPath": "data.xdt_api__v1__media__shortcode__web_info.items.0.user.username",
+    "captionPath": "data.xdt_api__v1__media__shortcode__web_info.items.0.caption.text",
+    "itemsPath": "data.xdt_api__v1__media__shortcode__web_info.items",
+    "itemType": "media_type",
+    "itemUrl": "video_versions",
+    "itemImageUrl": "image_versions2.candidates",
+    "itemThumbUrl": "image_versions2.candidates"
   }
 }
