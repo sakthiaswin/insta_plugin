@@ -1,9 +1,11 @@
 {
   "id": "instagram_reel",
   "name": "Instagram Reel",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": "sakthiaswin",
-  "targets": ["reel"],
+  "targets": [
+    "reel"
+  ],
   "urlPattern": "instagram\\.com/(?:[^/]+/)?reels?/(?<shortcode>[A-Za-z0-9_-]+)",
   "request": {
     "type": "doc_id_graphql",
@@ -13,15 +15,25 @@
     "docId": "27128499623469141",
     "body": {
       "doc_id": "27128499623469141",
+      "lsd": "AVqbxe3J_YA",
+      "fb_api_caller_class": "RelayModern",
+      "fb_api_req_friendly_name": "PolarisPostRootQuery",
       "variables": "{\"shortcode\":\"{shortcode}\",\"__relay_internal__pv__PolarisAIGMMediaWebLabelEnabledrelayprovider\":false}",
       "server_timestamps": "true"
     },
     "headers": {
       "X-IG-App-ID": "936619743392459",
+      "X-FB-LSD": "AVqbxe3J_YA",
+      "X-ASBD-ID": "359341",
+      "X-FB-Friendly-Name": "PolarisPostRootQuery",
       "Accept": "*/*",
-      "Accept-Language": "en-US,en;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Origin": "https://www.instagram.com",
       "Referer": "https://www.instagram.com/",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+      "Sec-Fetch-Site": "same-origin",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
     }
   },
   "extract": {
