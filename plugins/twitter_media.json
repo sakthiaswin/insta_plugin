@@ -1,7 +1,7 @@
 {
   "id": "twitter_media",
   "name": "X / Twitter Media (photos, videos, GIFs)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "InstaGrabber sample plugin",
   "targets": ["post", "image", "video", "gif", "carousel"],
   "urlPattern": "(?:https?://)?(?:www\\.|mobile\\.)?(?:x\\.com|twitter\\.com)/(?:[^/?#]+/)*status/(?<shortcode>[0-9]+)",
@@ -17,6 +17,7 @@
     "ownerPath": "status.author.screen_name",
     "captionPath": "status.text",
     "itemsPath": "status.media.all",
+    "itemsPaths": ["status.media.photos", "status.media.videos"],
     "itemType": "type",
     "itemUrl": "url",
     "itemThumbUrl": "thumbnail_url",
