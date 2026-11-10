@@ -1,0 +1,26 @@
+{
+  "id": "twitter_media",
+  "name": "X / Twitter Media (photos, videos, GIFs)",
+  "version": "1.0.0",
+  "author": "InstaGrabber sample plugin",
+  "targets": ["post", "image", "video", "gif", "carousel"],
+  "urlPattern": "(?:https?://)?(?:www\\.|mobile\\.)?(?:x\\.com|twitter\\.com)/(?:[^/?#]+/)*status/(?<shortcode>[0-9]+)",
+  "request": {
+    "method": "GET",
+    "urlTemplate": "https://api.fxtwitter.com/2/status/{shortcode}",
+    "headers": {
+      "Accept": "application/json",
+      "User-Agent": "InstaGrabber/1.0 (public post media fetcher)"
+    }
+  },
+  "extract": {
+    "ownerPath": "status.author.screen_name",
+    "captionPath": "status.text",
+    "itemsPath": "status.media.all",
+    "itemType": "type",
+    "itemUrl": "url",
+    "itemThumbUrl": "thumbnail_url",
+    "itemWidthPath": "width",
+    "itemHeightPath": "height"
+  }
+}
