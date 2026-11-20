@@ -1,12 +1,10 @@
 {
   "id": "instagram_reel",
   "name": "Instagram Reel",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "author": "sakthiaswin",
-  "targets": [
-    "reel"
-  ],
-  "urlPattern": "instagram\\.com/(?:[^/]+/)?reels?/(?<shortcode>[A-Za-z0-9_-]+)",
+  "targets": ["reel"],
+  "urlPattern": "(?:https?://)?(?:www\\.)?instagram\\.com/(?:[^/?#]+/)?reels?/(?<shortcode>[A-Za-z0-9_-]+)(?:[/?#]|$)",
   "request": {
     "type": "doc_id_graphql",
     "method": "POST",
