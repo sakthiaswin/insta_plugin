@@ -1,13 +1,10 @@
 {
   "id": "instagram_post",
   "name": "Instagram Post (photo / video / carousel)",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "author": "sakthiaswin",
-  "targets": [
-    "post",
-    "carousel"
-  ],
-  "urlPattern": "instagram\\.com/(?:[^/]+/)?p/(?<shortcode>[A-Za-z0-9_-]+)",
+  "targets": ["post", "carousel"],
+  "urlPattern": "(?:https?://)?(?:www\\.)?instagram\\.com/(?:[^/?#]+/)?p/(?<shortcode>[A-Za-z0-9_-]+)(?:[/?#]|$)",
   "request": {
     "type": "doc_id_graphql",
     "method": "POST",
